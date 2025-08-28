@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+{{title}}
+{% endblock pagetitle %}
+{% block body %}
+
+<div class="container py-4">
+    <!-- Result Header -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-10">
+            <div class="text-center">
+                <h1 class="page-title display-4"><i class="fas fa-leaf me-3"></i>{{title}}</h1>
+                <p class="lead text-muted">AI-powered plant analysis results</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Image Card -->
+        <div class="col-lg-5">
+            <div class="card h-100 animated-card" style="--i: 1">
+                <div class="card-body p-4 text-center">
+                    <h3 class="card-title mb-4">Analyzed Image</h3>
+                    <div class="image-container mb-3">
+                        <img src="{{image_url}}" alt="Plant Image" class="img-fluid rounded shadow" style="max-height: 350px; object-fit: contain;">
+                    </div>
+                    <a href="/index" class="btn btn-success mt-3">
+                        <i class="fas fa-redo me-2"></i>Analyze Another Plant
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Results -->
+        <div class="col-lg-7">
+            <div class="card h-100 animated-card" style="--i: 2">
+                <div class="card-body p-4">
+                    <h3 class="card-title mb-4">Analysis Results</h3>
+                    
+                    <!-- Description Section -->
+                    <div class="result-section mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-success p-2 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <i class="fas fa-info-circle text-white"></i>
+                            </div>
+                            <h5 class="mb-0">
+                                {% if pred==3 or pred==5 or pred==7 or pred==11 or pred==15 or pred==18 or pred==20 or pred==23 or pred==24 or pred==25 or pred==28 or pred==38 %}
+                                Tips to Grow Healthy Plants
+                                {% else %}
+                                Brief Description
+                                {% endif %}
+                            </h5>
+                        </div>
+                        <div class="ps-5">
+                            <p>{{desc}}</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Prevention Section -->
+                    <div class="result-section mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-success p-2 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <i class="fas fa-shield-alt text-white"></i>
+                            </div>
+                            <h5 class="mb-0">
+                                {% if pred==3 or pred==5 or pred==7 or pred==11 or pred==15 or pred==18 or pred==20 or pred==23 or pred==24 or pred==25 or pred==28 or pred==38 %}
+                                Benefits
+                                {% else %}
+                                Prevention Steps
+                                {% endif %}
+                            </h5>
+                        </div>
+                        <div class="ps-5">
+                            <p>{{prevent}}</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Supplements Section (if applicable) -->
+                    {% if pred!=4 %}
+                    <div class="result-section">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle bg-success p-2 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <i class="fas fa-shopping-cart text-white"></i>
+                            </div>
+                            <h5 class="mb-0">
+                                {% if pred==3 or pred==5 or pred==7 or pred==11 or pred==15 or pred==18 or pred==20 or pred==23 or pred==24 or pred==25 or pred==28 or pred==38 %}
+                                Recommended Fertilizer
+                                {% else %}
+                                Recommended Supplements
+                                {% endif %}
+                            </h5>
+                        </div>
+                        <div class="ps-5 text-center">
+                            <div class="product-container p-3 mb-3">
+                                <img src="{{simage}}" alt="{{sname}}" class="img-fluid mb-3" style="max-height: 200px; object-fit: contain;">
+                                <h6 class="product-name mb-3">{{sname}}</h6>
+                                <a target="_blank" href="{{buy_link}}" class="btn btn-success">
+                                    <i class="fas fa-shopping-bag me-2"></i>Buy Product
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .image-container {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 10px;
+        background-color: #f9f9f9;
+    }
+    
+    .result-section {
+        border-bottom: 1px dashed #e0e0e0;
+        padding-bottom: 20px;
+    }
+    
+    .result-section:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    .product-container {
+        background-color: #f8f9fa;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+    }
+    
+    .product-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .product-name {
+        color: var(--primary-dark);
+        font-weight: 600;
+    }
+</style>
+{% endblock body %}

@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Plant Disease Detection
+{% endblock pagetitle %}
+{% block body %}
+<style>
+  @media only screen and (max-width: 830px) {
+    .laptop {
+      display: none;
+    }
+  }
+  @media (min-width:830px) and (max-width: 1536px) {
+    .mobile {
+      display: none;
+    }
+  }
+  
+  .plant-card {
+    height: 100%;
+    overflow: hidden;
+    animation-delay: calc(var(--i) * 0.1s);
+  }
+  
+  .plant-card img {
+    transition: all 0.5s ease;
+    object-fit: cover;
+    height: 220px;
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .plant-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  .plant-name {
+    font-weight: 500;
+    margin-top: 15px;
+    color: var(--primary-dark);
+  }
+  
+  .hero-section {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 80px 0;
+    border-radius: 15px;
+    margin-bottom: 50px;
+  }
+  .newstyle{
+   
+    font-weight: 400;
+    cursor: pointer;
+    position: relative;
+    font-size: 20px;
+    font-family: inherit;
+    padding: 10px 22px;
+    z-index: 0;
+    overflow: hidden;
+    border: none;
+    border-radius: 100px;
+    background: #2e7d32;
+    color: #fff;
+    -webkit-transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+    text-decoration: none;
+}
+.newstyle:hover{
+  background-color: #1b5e20;
+}
+  
+</style>
+
+<div class='mobile p-5'>
+  <div class="alert alert-danger text-center p-4">
+    <h4><i class="fas fa-exclamation-triangle me-2"></i>Important Note</h4>
+    <p class="mb-0">Please open this site on a laptop or desktop computer for the best experience.</p>
+    <p class="mt-3 mb-0">Thank you for your understanding.</p>    
+  </div>
+</div>
+
+<div class="laptop">
+  <div class="hero-section text-center mb-5">
+    <h1 class="display-4 fw-bold"><i class="fas fa-leaf me-3"></i>Plant Disease Detection</h1>
+    <p class="lead">Our AI-powered system helps identify plant diseases early to save your crops</p>
+    <a href="/index" class="newstyle">
+      <i class="fas fa-microscope me-2"></i>Start Scanning
+    </a>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-12 text-center">
+      <h2 class="page-title">Supported Plants & Fruits</h2>
+      <p class="lead text-muted">Our AI engine can detect diseases in the following plants and fruits</p>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-3" style="--i: 1">
+      <div class="card plant-card animated-card">
+        <div class="card-body text-center p-4">
+          <img src="https://post.healthline.com/wp-content/uploads/2020/09/Do_Apples_Affect_Diabetes_and_Blood_Sugar_Levels-732x549-thumbnail-1-732x549.jpg" class="mb-3">
+          <h5 class="plant-name">Apple</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3" style="--i: 2">
+      <div class="card plant-card animated-card">
+        <div class="card-body text-center p-4">
+          <img src="https://www.supermarketperimeter.com/ext/resources/0430-blueberries.png?t=1588260305&width=1080" class="mb-3">
+          <h5 class="plant-name">Blueberry</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3" style="--i: 3">
+      <div class="card plant-card animated-card">
+        <div class="card-body text-center p-4">
+          <img src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/slideshows/health_benefits_of_cherries_slideshow/1800x1200_health_benefits_of_cherries_slideshow.jpg" class="mb-3">
+          <h5 class="plant-name">Cherry</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3" style="--i: 4">
+      <div class="card plant-card animated-card">
+        <div class="card-body text-center p-4">
+          <img src="https://images.unsplash.com/photo-1634467524884-897d0af5e104?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="mb-3">
+          <h5 class="plant-name">Corn</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4 mt-2">
+    <div class="col-md-3" style="--i: 5">
+      <div class="card plant-card animated-card">
+        <div class="card-body text-center p-4">
+          <img src="https://i.ndtvimg.com/i/2015-09/grapes_625x350_61443376353.jpg" class="mb-3">
+          <h5 class="plant-name">Grape</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3" style="--i: 6">
+      <div class="card plant-card animated-card">
+        <div class="card-body text-center p-4">
+          <img src="https://media.istockphoto.com/id/172411313/photo/juicy-orange-refreshment.webp?a=1&b=1&s=612x612&w=0&k=20&c=Rg-YKQSIkq4meHCKsXxq8qGbFSvcdgOj7FHEb3y0orA=" class="mb-3">
+          <h5 class="plant-name">Orange</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3" style="--i: 7">
+      <div class="card plant-card animated-card">
+        <div class="card-body text-center p-4">
+          <img src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/the_health_benefits_of_peaches_slideshow/thinkstock_rf_peaches.jpg?resize=650px:*" class="mb-3">
+          <h5 class="plant-name">Peach</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3" style="--i: 8">
+      <div class="card plant-card animated-card">
+        <div class="card-body text-center p-4">
+          <img src="https://www.lovethegarden.com/sites/default/files/styles/scale_xl_2x_col_12/public/content/articles/UK_sweet-peppers-growing.jpg.webp?itok=SqVVn0UA" class="mb-3">
+          <h5 class="plant-name">Pepper Bell</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4 mt-2">
+    <div class="col-md-3" style="--i: 9">
+      <div class="card plant-card animated-card">
+        <div class="card-body text-center p-4">
+          <img src="https://m.economictimes.com/thumb/height-450,width-600,imgsize-111140,msid-72862126/potato-getty.jpg" class="mb-3">
+          <h5 class="plant-name">Potato</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3" style="--i: 10">
+      <div class="card plant-card animated-card">
+        <div class="card-body text-center p-4">
+          <img src="https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/326/326272/raspberries-with-ketones-in-a-bowl.jpg?w=1155&h=1541" class="mb-3">
+          <h5 class="plant-name">Raspberry</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3" style="--i: 11">
+      <div class="card plant-card animated-card">
+        <div class="card-body text-center p-4">
+          <img src="https://m.economictimes.com/thumb/msid-66988154,width-1200,height-900,resizemode-4,imgsize-211276/soyabean-agencies.jpg" class="mb-3">
+          <h5 class="plant-name">Soybean</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3" style="--i: 12">
+      <div class="card plant-card animated-card">
+        <div class="card-body text-center p-4">
+          <img src="https://post.healthline.com/wp-content/uploads/2020/08/squash-fruit-or-vegetable-732x549-thumbnail-732x549.jpg" class="mb-3">
+          <h5 class="plant-name">Squash</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4 mt-2 justify-content-center">
+    <div class="col-md-3" style="--i: 13">
+      <div class="card plant-card animated-card">
+        <div class="card-body text-center p-4">
+          <img src="https://images.indianexpress.com/2020/02/strawberry-1200.jpg" class="mb-3">
+          <h5 class="plant-name">Strawberry</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3" style="--i: 14">
+      <div class="card plant-card animated-card">
+        <div class="card-body text-center p-4">
+          <img src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/tomatoes-1296x728-feature.jpg" class="mb-3">
+          <h5 class="plant-name">Tomato</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

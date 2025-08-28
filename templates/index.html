@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+AI Engine
+{% endblock pagetitle %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="text-center mb-5">
+            <h1 class="page-title display-4"><i class="fas fa-robot me-3"></i>AI Engine</h1>
+            <p class="lead text-muted">Let our advanced AI help you detect plant diseases</p>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-4">
+        <div class="card h-100 animated-card" style="--i: 1">
+            <div class="card-body p-4">
+                <h3 class="card-title mb-4"><i class="fas fa-question-circle me-2" style="color: var(--primary-color)"></i>Why Detect Plant Disease?</h3>
+                <p class="card-text">
+                    Plant diseases significantly affect growth and yield quality. Early detection is crucial for:
+                </p>
+                <ul class="mt-3">
+                    <li>Preventing spread to healthy plants</li>
+                    <li>Reducing crop losses and economic impact</li>
+                    <li>Minimizing pesticide use through targeted treatment</li>
+                    <li>Improving overall agricultural sustainability</li>
+                </ul>
+                <p class="mt-3">
+                    Our AI-powered diagnosis provides quick and accurate identification, allowing for timely intervention before symptoms become severe.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card h-100 animated-card" style="--i: 2">
+            <div class="card-body p-4 text-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/1786/1786075.png" alt="Plant Health" class="img-fluid mb-4" style="max-height: 150px;">
+
+                <h3 class="card-title mb-4">Scan Your Plant</h3>
+
+                <form action="/submit" method="POST" enctype="multipart/form-data">
+                    <div class="mb-4">
+                        <input type="file" id="actual-btn" hidden name="image" accept="image/*" />
+                        <label for="actual-btn" class="custom-file-label">
+                            <i class="fas fa-upload me-2"></i>Choose File
+                        </label>
+                        <label id="camera-btn" class="custom-file-label mt-3">
+                            <i class="fas fa-camera me-2"></i>Open Camera
+                        </label>
+                        <div class="mt-3">
+                            <span id="file-chosen">No file chosen</span>
+                        </div>
+                    </div>
+
+                    <div id="camera-container" class="my-4" style="display: none;">
+                        <video id="camera-feed" width="100%" height="auto" autoplay class="rounded"></video>
+                        <button type="button" id="capture-btn" class="btn btn-success mt-3">
+                            <i class="fas fa-camera me-2"></i>Capture Photo
+                        </button>
+                    </div>
+
+                    <img id="preview" src="#" alt="Preview" style="display: none; max-width: 100%;" class="rounded mb-4" />
+
+                    <p class="text-muted mb-4">
+                        Simply upload a clear image of your plant's leaf to get an instant disease analysis.
+                    </p>
+
+                    <div class="loader" id="analysis-loader"></div>
+
+                    <button type="submit" class="btn btn-success" id="submit-btn">
+                        <i class="fas fa-search me-2"></i>Analyze Plant
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card h-100 animated-card" style="--i: 3">
+            <div class="card-body p-4">
+                <h3 class="card-title mb-4"><i class="fas fa-shield-alt me-2" style="color: var(--primary-color)"></i>Prevention Tips</h3>
+                <p class="card-text">Follow these best practices to keep your plants healthy:</p>
+                
+                <div class="mt-3">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="rounded-circle bg-success p-2 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                            <i class="fas fa-broom text-white"></i>
+                        </div>
+                        <div>
+                            <strong>Good Sanitation</strong>
+                            <p class="mb-0 small">Clean tools and remove infected plants</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="rounded-circle bg-success p-2 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                            <i class="fas fa-wind text-white"></i>
+                        </div>
+                        <div>
+                            <strong>Air Circulation</strong>
+                            <p class="mb-0 small">Proper spacing between plants</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="rounded-circle bg-success p-2 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                            <i class="fas fa-tint text-white"></i>
+                        </div>
+                        <div>
+                            <strong>Proper Watering</strong>
+                            <p class="mb-0 small">Water at the base, avoid wetting leaves</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="rounded-circle bg-success p-2 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                            <i class="fas fa-eye text-white"></i>
+                        </div>
+                        <div>
+                            <strong>Regular Inspection</strong>
+                            <p class="mb-0 small">Check leaves and stems for early signs</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center">
+                        <div class="rounded-circle bg-success p-2 me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                            <i class="fas fa-seedling text-white"></i>
+                        </div>
+                        <div>
+                            <strong>Plant Health</strong>
+                            <p class="mb-0 small">Provide proper nutrients and sunlight</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for file upload and camera functionality -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const actualBtn = document.getElementById('actual-btn');
+        const fileChosen = document.getElementById('file-chosen');
+        const preview = document.getElementById('preview');
+        const cameraBtn = document.getElementById('camera-btn');
+        const cameraContainer = document.getElementById('camera-container');
+        const cameraFeed = document.getElementById('camera-feed');
+        const captureBtn = document.getElementById('capture-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const analysisLoader = document.getElementById('analysis-loader');
+        
+        // File upload preview
+        actualBtn.addEventListener('change', function() {
+            fileChosen.textContent = this.files[0] ? this.files[0].name : 'No file chosen';
+            
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    cameraContainer.style.display = 'none';
+                };
+                
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+        
+        // Camera functionality
+        let stream = null;
+        
+        cameraBtn.addEventListener('click', async function() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                cameraFeed.srcObject = stream;
+                cameraContainer.style.display = 'block';
+                preview.style.display = 'none';
+            } catch (err) {
+                console.error("Error accessing camera: ", err);
+                alert("Could not access camera. Please check permissions.");
+            }
+        });
+        
+        captureBtn.addEventListener('click', function() {
+            const canvas = document.createElement('canvas');
+            canvas.width = cameraFeed.videoWidth;
+            canvas.height = cameraFeed.videoHeight;
+            canvas.getContext('2d').drawImage(cameraFeed, 0, 0);
+            
+            // Convert to file
+            canvas.toBlob(function(blob) {
+                const file = new File([blob], "camera-capture.jpg", { type: "image/jpeg" });
+                
+                // Create a FileList-like object
+                const dataTransfer = new DataTransfer();
+                dataTransfer.items.add(file);
+                actualBtn.files = dataTransfer.files;
+                
+                // Update UI
+                fileChosen.textContent = "camera-capture.jpg";
+                preview.src = canvas.toDataURL('image/jpeg');
+                preview.style.display = 'block';
+                cameraContainer.style.display = 'none';
+                
+                // Stop camera stream
+                if (stream) {
+                    stream.getTracks().forEach(track => track.stop());
+                }
+            }, 'image/jpeg');
+        });
+        
+        // Form submission with loading indicator
+        document.querySelector('form').addEventListener('submit', function() {
+            if (actualBtn.files.length === 0) {
+                alert("Please select an image or capture a photo first.");
+                return false;
+            }
+            
+            submitBtn.disabled = true;
+            analysisLoader.style.display = 'block';
+            return true;
+        });
+    });
+</script>
+{% endblock body %}

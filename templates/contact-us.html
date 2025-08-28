@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Contact Us
+{% endblock pagetitle %}
+
+{% block body %}
+<div class="container py-5">
+  <!-- Header Section -->
+  <div class="row mb-4 text-center">
+    <div class="col-lg-10 mx-auto">
+      <h1 class="display-4 fw-bold text-success">Contact Us</h1>
+      <p class="lead text-dark">Get in touch with our team for any questions or support needs</p>
+      <hr class="my-4">
+    </div>
+  </div>
+  
+  <div class="row">
+    <!-- Contact Information Card -->
+    <div class="col-md-5 mb-4">
+      <div class="card border-0 shadow-sm rounded-3 h-100">
+        <div class="card-body p-4">
+          <h3 class="card-title mb-4 text-success">Our Information</h3>
+          
+          <div class="d-flex align-items-center mb-4">
+            <div class="flex-shrink-0 bg-success text-white rounded-circle p-3 me-3">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div>
+              <h5 class="mb-0">Phone</h5>
+              <p class="mb-0">+91 9579848712</p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-center mb-4">
+            <div class="flex-shrink-0 bg-success text-white rounded-circle p-3 me-3">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h5 class="mb-0">Email</h5>
+              <p class="mb-0">shrikantwadkar100@gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-center mb-4">
+            <div class="flex-shrink-0 bg-success text-white rounded-circle p-3 me-3">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h5 class="mb-0">Address</h5>
+              <p class="mb-0">Pune<br>Maharastra, India - 411001</p>
+            </div>
+          </div>
+          
+          <div class="mt-5">
+            <h5 class="mb-3">Connect With Us</h5>
+            <div class="d-flex gap-3">
+              <a href="#" class="btn btn-outline-success rounded-circle">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="btn btn-outline-success rounded-circle">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="btn btn-outline-success rounded-circle">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="btn btn-outline-success rounded-circle">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contact Form Card -->
+    <div class="col-md-7 mb-4">
+      <div class="card border-0 shadow-sm rounded-3 h-100">
+        <div class="card-body p-4">
+          <h3 class="card-title mb-4 text-success">Send Us a Message</h3>
+          
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+              </div>
+              
+              <div class="col-md-6">
+                <label for="email" class="form-label">Your Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+              </div>
+              
+              <div class="col-12">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+              </div>
+              
+              <div class="col-12">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+              </div>
+              
+              <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-success px-4 py-2">
+                  <i class="fas fa-paper-plane me-2"></i>Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Map Section (Optional) -->
+  <div class="row mt-3">
+    <div class="col-12">
+      <div class="card border-0 shadow-sm rounded-3">
+        <div class="card-body p-0">
+          <div class="ratio ratio-21x9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242118.14199614953!2d73.7228701790072!3d18.524411295173374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1710038924663!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" 
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" class="w-100"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .rounded-circle {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .btn-outline-success:hover {
+    color: white;
+  }
+  
+  .card {
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+</style>
+{% endblock body %}
